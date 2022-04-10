@@ -2,10 +2,14 @@ package com.yemekapp.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.yemekapp.android.Adapter.ImageAdapter;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbarMain;
@@ -21,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
         tvAlisveris = findViewById(R.id.tvAlisveris);
         tvHizliMarket = findViewById(R.id.tvHizliMarket);
 
+
         tvYemekSiparis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getApplicationContext(),YemekSiparisActivity.class));
             }
         });
         tvAlisveris.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-
-
     }
+
 }
