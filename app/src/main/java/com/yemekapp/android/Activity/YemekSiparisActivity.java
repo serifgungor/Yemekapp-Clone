@@ -1,4 +1,4 @@
-package com.yemekapp.android;
+package com.yemekapp.android.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
 import com.yemekapp.android.Adapter.ImageAdapter;
+import com.yemekapp.android.R;
 
 public class YemekSiparisActivity extends AppCompatActivity {
     ViewPager viewPagerSlider;

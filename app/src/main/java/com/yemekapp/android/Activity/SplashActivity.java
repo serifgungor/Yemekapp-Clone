@@ -1,9 +1,12 @@
-package com.yemekapp.android;
+package com.yemekapp.android.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.yemekapp.android.Activity.MainActivity;
+import com.yemekapp.android.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
     }
