@@ -3,6 +3,9 @@ package com.yemekapp.android.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -11,8 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yemekapp.android.Adapter.ImageAdapter;
+import com.yemekapp.android.Helper.DatabaseHelper;
 import com.yemekapp.android.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class YemekSiparisActivity extends AppCompatActivity{
@@ -22,7 +27,17 @@ public class YemekSiparisActivity extends AppCompatActivity{
     LinearLayout mutfaklarLayout,favoriMekanlarimLayout,oncekiSiparislerimLayout;
 
 
+    DatabaseHelper dbHelper;
+    SQLiteDatabase db;
 
+    public void dbInit(){
+        try {
+            dbHelper = new DatabaseHelper(getApplicationContext());
+            db = dbHelper.getReadableDatabase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void init(){
         viewPagerSlider = findViewById(R.id.viewPagerSlider);
@@ -31,20 +46,15 @@ public class YemekSiparisActivity extends AppCompatActivity{
         oncekiSiparislerimLayout = findViewById(R.id.oncekiSiparislerimLayout);
     }
 
+    @SuppressLint("Range")
     public void mutfaklariDoldur(){
         ArrayList<String> mutfaklar = new ArrayList<>();
-        mutfaklar.add("Burger");
-        mutfaklar.add("Çiğ Köfte");
-        mutfaklar.add("Dondurma");
-        mutfaklar.add("Döner");
-        mutfaklar.add("Ev Yemekleri");
-        mutfaklar.add("Kahve");
-        mutfaklar.add("Kebap & Türk Mutfağı");
-        mutfaklar.add("Kumpir");
-        mutfaklar.add("Makarna & Salata");
-        mutfaklar.add("Meze");
-        mutfaklar.add("Pastane & Fırın");
-        mutfaklar.add("Pide & Lahmacun");
+
+        //Mutfakların veritabanından çekilmesi işlemi
+        Cursor c = db.rawQuery("select * from Mutfak",null);
+        while (c.moveToNext()){
+            mutfaklar.add(c.getString(c.getColumnIndex("mutfak_adi")));
+        }
 
         for (String mutfak:mutfaklar) {
             TextView tvMutfakAdi = new TextView(getApplicationContext());
@@ -65,6 +75,7 @@ public class YemekSiparisActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yemek_siparis);
         init();
+        dbInit();
         mutfaklariDoldur();
 
         adapterView = new ImageAdapter(getApplicationContext());
