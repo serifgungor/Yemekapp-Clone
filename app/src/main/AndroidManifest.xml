@@ -11,8 +11,12 @@
         android:theme="@style/Theme.YemekApp">
         <activity
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:name=".Activity.YemekSiparisActivity"
+            android:name=".Activity.RestoranlariListeleActivity"
             android:exported="false" />
+        <activity
+            android:name=".Activity.YemekSiparisActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Activity.SplashActivity"
             android:exported="true">

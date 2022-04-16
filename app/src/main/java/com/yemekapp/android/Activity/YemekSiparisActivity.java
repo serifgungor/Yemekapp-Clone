@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +25,7 @@ import java.util.ArrayList;
 public class YemekSiparisActivity extends AppCompatActivity{
     ViewPager viewPagerSlider;
     ImageAdapter adapterView;
-
+    Button btnRestoranlariListele;
     LinearLayout mutfaklarLayout,favoriMekanlarimLayout,oncekiSiparislerimLayout;
 
 
@@ -44,6 +46,13 @@ public class YemekSiparisActivity extends AppCompatActivity{
         mutfaklarLayout = findViewById(R.id.mutfaklarLayout);
         favoriMekanlarimLayout = findViewById(R.id.favoriMekanlarimLayout);
         oncekiSiparislerimLayout = findViewById(R.id.oncekiSiparislerimLayout);
+        btnRestoranlariListele = findViewById(R.id.btnRestoranlariListele);
+        btnRestoranlariListele.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), RestoranlariListeleActivity.class));
+            }
+        });
     }
 
     @SuppressLint("Range")
