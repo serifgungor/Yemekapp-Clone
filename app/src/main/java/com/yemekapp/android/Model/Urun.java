@@ -1,6 +1,8 @@
 package com.yemekapp.android.Model;
 
-public class Urun {
+import java.io.Serializable;
+
+public class Urun implements Serializable {
     private int id;
     private int urun_adedi;
     private double urun_fiyat;
@@ -11,8 +13,6 @@ public class Urun {
 
     public Urun() {
     }
-
-    //int id, int urun_adedi, double urun_fiyat, String urun_adi, String urun_aciklama, String urun_gorsel_url, boolean urun_satisdurumu
 
     public Urun(int id, int urun_adedi, double urun_fiyat, String urun_adi, String urun_aciklama, String urun_gorsel_url, boolean urun_satisdurumu) {
         this.id = id;

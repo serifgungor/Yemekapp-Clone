@@ -61,7 +61,7 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_edittext"
                     android:ems="10"
-                    android:hint="Restoran adı veya mahalle adı giriniz"
+                    android:hint="Restoran adı giriniz"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"

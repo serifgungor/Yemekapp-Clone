@@ -1,6 +1,8 @@
 package com.yemekapp.android.Model;
 
-public class Restoran {
+import java.io.Serializable;
+
+public class Restoran implements Serializable {
     private int id;
     private String restoranAdi;
     private int restoranIl;

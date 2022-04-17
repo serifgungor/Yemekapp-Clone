@@ -1,5 +1,6 @@
 package com.yemekapp.android.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.yemekapp.android.Activity.RestoranDetayActivity;
 import com.yemekapp.android.Holder.RestoranHolder;
 import com.yemekapp.android.Model.Restoran;
 import com.yemekapp.android.R;
@@ -41,7 +43,14 @@ public class RV_RestoranAdapter extends RecyclerView.Adapter<RestoranHolder> imp
         holder.tvRestoranOrtalamaSure.setText(""+r.getGetirmeSuresi());
         holder.tvRestoranIlceMahalle.setText(r.getRestoranIlceMahalle());
         Glide.with(holder.itemView.getContext()).load(r.getRestoranKapakGorsel()).into(holder.ivRestoranKapakGorsel);
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(), RestoranDetayActivity.class);
+                intent.putExtra("restoran",r);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
 
     }
 

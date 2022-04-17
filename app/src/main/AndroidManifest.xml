@@ -12,10 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YemekApp">
         <activity
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".Activity.RestoranDetayActivity"
             android:exported="false" />
         <activity
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:name=".Activity.RestoranlariListeleActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

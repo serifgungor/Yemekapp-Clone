@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.yemekapp.android.R;
 
-public class RestoranHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class RestoranHolder extends RecyclerView.ViewHolder {
 
     public ImageView ivRestoranKapakGorsel;
     public TextView tvRestoranAdi,tvRestoranIlceMahalle,tvRestoranMinUcret,tvRestoranOrtalamaSure,tvRestoranGetirmeUcreti;
@@ -22,11 +22,5 @@ public class RestoranHolder extends RecyclerView.ViewHolder implements View.OnCl
         tvRestoranMinUcret = itemView.findViewById(R.id.tvRestoranMinUcret);
         tvRestoranOrtalamaSure = itemView.findViewById(R.id.tvRestoranOrtalamaSure);
         tvRestoranGetirmeUcreti = itemView.findViewById(R.id.tvRestoranGetirmeUcreti);
-        itemView.setOnClickListener(this::onClick);
-    }
-
-    @Override
-    public void onClick(View view) {
-
     }
 }
