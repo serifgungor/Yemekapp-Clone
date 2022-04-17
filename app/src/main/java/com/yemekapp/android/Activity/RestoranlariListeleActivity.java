@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -41,7 +43,7 @@ public class RestoranlariListeleActivity extends AppCompatActivity {
         ArrayList<Restoran> restoranlar = new ArrayList<>();
 
         restoranlar.add(new Restoran(1,"Ad 1",34,"Sultangazi Uğurmumcu","Adres","https://cdn.yemeksepeti.com/adm/ramazan_new_web.jpg",0,30,20));
-        restoranlar.add(new Restoran(2,"Ad 2",34,"Sultangazi Uğurmumcu","Adres","https://cdn.yemeksepeti.com/adm/ramazan_new_web.jpg",0,30,20));
+        restoranlar.add(new Restoran(2,"Ad 2",34,"Kadıköy Moda","Adres","https://cdn.yemeksepeti.com/adm/ramazan_new_web.jpg",0,30,20));
         restoranlar.add(new Restoran(3,"Ad 3",34,"Sultangazi Uğurmumcu","Adres","https://cdn.yemeksepeti.com/adm/ramazan_new_web.jpg",0,30,20));
 
         return restoranlar;
@@ -59,5 +61,21 @@ public class RestoranlariListeleActivity extends AppCompatActivity {
         rvRestoranlariListele.setLayoutManager(layoutManager);
         rvRestoranlariListele.setAdapter(adapter);
         rvRestoranlariListele.setItemAnimator(new DefaultItemAnimator());
+        etRestoranAra.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                adapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 }
