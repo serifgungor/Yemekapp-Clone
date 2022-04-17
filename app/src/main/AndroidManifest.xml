@@ -3,6 +3,7 @@
     package="com.yemekapp.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,8 +13,12 @@
         android:theme="@style/Theme.YemekApp">
         <activity
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:name=".Activity.RestoranlariListeleActivity"
+            android:name=".Activity.RestoranDetayActivity"
             android:exported="false" />
+        <activity
+            android:name=".Activity.RestoranlariListeleActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Activity.YemekSiparisActivity"
             android:exported="false"
