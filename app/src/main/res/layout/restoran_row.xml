@@ -34,6 +34,9 @@
                     android:id="@+id/tvRestoranAdi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:text="TextView"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -42,6 +45,9 @@
                     android:id="@+id/tvRestoranIlceMahalle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:text="TextView"
                     android:textSize="16sp" />
             </LinearLayout>
